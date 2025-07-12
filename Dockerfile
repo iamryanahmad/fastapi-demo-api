@@ -16,4 +16,4 @@ EXPOSE 8000
 EXPOSE 8501
 
 # Run both apps using a shell script
-CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port 8000 & streamlit run streamlit_app.py"]
+CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port 8000 & streamlit run frontend.py"]
