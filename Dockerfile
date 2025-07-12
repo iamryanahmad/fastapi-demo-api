@@ -11,8 +11,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy rest of application code
 COPY . .
 
-# Expose the application port
+# Expose both FastAPI and Streamlit ports
 EXPOSE 8000
+EXPOSE 8501
 
-# Command to start FastAPI application
-CMD ["python3","-m","uvicorn","app:app","--host","0.0.0.0","--port","8000"]
+# Run both apps using a shell script
+CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port 8000 & streamlit run streamlit_app.py"]
